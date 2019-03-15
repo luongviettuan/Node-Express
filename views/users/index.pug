@@ -1,9 +1,19 @@
-h1 List Name
-form(action="/users/search", method="get")
-    input(type="text", name="q")
-    button search
-ul
-    each user in users
-        li
-            a(href='/users/' + user.id)= user.name
-            
+extends ../layouts/common.pug
+block content
+        h1 List Name
+        a(class="btn btn-primary mb-2", href="/users/create") Create
+        form(action="/users/search", method="get", class="form-group d-flex")
+            input(type="text", name="q", class="form-control")
+            button(class="btn btn-primary ml-2") Search
+        table.table
+            tr
+                td Name
+                td Age
+                td 
+            each user in users
+                tr
+                    td= user.name
+                    td= user.age
+                    td
+                        a(href='/users/' + user.id, class="btn btn-light") View
+                    

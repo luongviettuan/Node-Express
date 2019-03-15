@@ -1,7 +1,9 @@
-h1 Tao todo
-form(action="/users/create", method="post")
-    label Name
-    input(type="text", name="name")
-    label Age
-    input(type="text", name="age")
-    button Create
+extends ../layouts/common.pug
+block content
+    h1 Tao todo
+    form(action="/users/create", method="post", class="form-group d-flex")
+        label(class="input-group-text") Name
+        input(type="text", name="name" , class="form-control")
+        label(class="input-group-text") Age
+        input(type="text", name="age", class="form-control")
+        button(class="btn btn-primary  ml-2") Create
