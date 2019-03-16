@@ -25,6 +25,17 @@ module.exports.create = (req, res)=>{
     res.render('users/create')
 }
 module.exports.postCreate = (req, res)=>{
+    var errors = [];
+    if(!req.body.name){
+        errors.push('name is requered')
+    }
+    if(!req.body.age){
+        errors.push('age is requered')
+    }
+    if(errors.length){
+        res.render('users/create', {errors : errors, values : req.body})
+        return;
+    }
     db.get('users')
         .push({id : i++, name : req.body.name, age : req.body.age})
         .write();
