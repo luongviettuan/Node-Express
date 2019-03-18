@@ -3,7 +3,9 @@
     {
       "id": 0,
       "name": "tuan",
-      "age": "22"
+      "age": "22",
+      "email": "luongviettuan311297@gmail.com",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b"
     },
     {
       "id": 1,
@@ -22,23 +24,8 @@
     },
     {
       "id": 4,
-      "name": "thu",
-      "age": "96"
-    },
-    {
-      "id": 5,
       "name": "van",
-      "age": "21"
-    },
-    {
-      "id": 6,
-      "name": "bay",
-      "age": "26"
-    },
-    {
-      "id": 7,
-      "name": "das",
-      "age": "das"
+      "age": "22"
     }
   ]
 }

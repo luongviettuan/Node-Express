@@ -1,12 +1,23 @@
 var express = require('express');
 var app = express()
-var usersRouter = require('./routers/users.router')
+
+var requireMiddle = require('./middleware/auth.middleware')
+var cookieParser = require('cookie-parser')
+app.use(cookieParser('123456789'))
+
+// phải sử dụng cookies parser .v..v.. trước router
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
 app.use(express.static('public'))
-app.use('/users', usersRouter)
+
+var authRouter = require('./routers/auth.router')
+app.use('/auth', authRouter)
+var usersRouter = require('./routers/users.router')
+app.use('/users',requireMiddle.requireAuth, usersRouter)
 
 
 app.set('view engine', 'pug')
