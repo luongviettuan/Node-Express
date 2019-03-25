@@ -28,7 +28,7 @@ module.exports.create = (req, res)=>{
 module.exports.postCreate = (req, res)=>{
 
     db.get('users')
-        .push({id : i++, name : req.body.name, age : req.body.age})
+        .push({id : i++, name : req.body.name, age : req.body.age, avatar : req.file.path.split('/').slice(1).join('/')})
         .write();
     res.redirect('/users')
 }

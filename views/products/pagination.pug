@@ -1,0 +1,33 @@
+extends ../layouts/common.pug
+block content
+    .clearfix
+        h1.float-left List Name
+        form(method="get", class="form-group d-flex float-right")
+            input(type="search", name="name", class="form-control")
+            button(class="btn btn-primary ml-2") Search
+    .d-flex.flex-wrap
+        each product in paginationPro
+            .col-3
+                .card.text-center
+                    img.card-img-top(src= product.image, alt=product.name)
+                    .card-body
+                        h5.card-title= product.name
+                        p.card-text= product.description
+                        a.btn.btn-primary.float-center(href='/cart/add/' + product.id) Add To Cart
+    nav(aria-label='Page navigation example', class="float-right pt-3")
+        ul.pagination
+            //- li.page-item
+            //-     a.page-link(href='#') Previous
+            //- li.page-item
+            //-     a.page-link(href='?page=' + index) 1
+            //- li.page-item
+            //-     a.page-link(href='?page=2') 2
+            //- li.page-item
+            //-     a.page-link(href='?page=3') 3
+            //- li.page-item
+            //-     a.page-link(href='#') Next
+            - var i = 1
+            while i < lengths
+                li.page-item
+                    a.page-link(href='?page=' + i)= i            
+                
